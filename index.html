@@ -13,13 +13,11 @@
   <body>
     <header class="main-header">
       <nav class="main-nav">
+        <a class="main-nav__homepage">
+          <img class="logo" src="img/contents/logo-dark.svg" alt="Логотип магазина Ботаника" width="100" height="32">
+          На главную
+        </a>
         <ul class="main-nav__list">
-          <li class="main-nav__item main-nav__homepage">
-            <a>
-              <img class="logo" src="img/contents/logo-dark.svg" alt="Логотип магазина Ботаника" width="100" height="32">
-              На главную
-            </a>
-          </li>
           <li class="main-nav__item"><a href="#">Каталог</a></li>
           <li class="main-nav__item"><a href="#">Доставка и оплата</a></li>
           <li class="main-nav__item"><a href="#">Отзывы</a></li>
@@ -30,13 +28,13 @@
       </nav>
     </header>
     <main>
-      <article class="promo">
+      <section class="promo">
         <div class="promo-wrapper">
           <h1 class="promo__header">Авторские букеты <i>в Петербурге</i></h1>
           <p class="promo__description">Оригинальные свежие букеты с доставкой по всему городу</p>
           <a class="promo__btn" href="#">Смотреть каталог</a>
         </div>
-      </article>
+      </section>
       <section class="features">
         <h2 class="visually-hidden">Особенности сервиса</h2>
         <ul class="features-list">
@@ -63,13 +61,13 @@
       <section class="popular">
         <h2>Популярные букеты</h2>
         <ul class="popular-slides">
-          <li class="popular-slides__slide">
-            <h3 class="popular-slides__header">Букет «Нежность»</h3>
-            <img class="popular-slides__img"src="img/contents/popular-1.png" alt="Букет «Нежность»" width="387" height="438">
-            <p class="popular-slides__description">Элегантный букет, который станет отличным подарком на день рождения или юбилей.</p>
-            <span class="popular-slides__size">30 × 40 см</span>
-            <span class="popular-slides__price">3600 руб.</span>
-            <a class="popular-slides__btn" href="#">Заказать</a>
+          <li class="popular-slides__item">
+            <h3 class="popular-item__header">Букет «Нежность»</h3>
+            <img class="popular-item__img"src="img/contents/popular-1.png" alt="Букет «Нежность»" width="387" height="438">
+            <p class="popular-item__description">Элегантный букет, который станет отличным подарком на день рождения или юбилей.</p>
+            <span class="popular-item__size">30 × 40 см</span>
+            <span class="popular-item__price">3600 руб.</span>
+            <a class="popular-item__btn" href="#">Заказать</a>
           </li>
         </ul>
         <div class="popular__buttons">
@@ -134,7 +132,7 @@
       <section class="news">
           <div class="news-inner">
           <h2 class="news__header">Следите за нашими новостями</h2>
-          <p class="news__description">Подписывайтесь на наши соцсети и узнавайте о новинках и акциях первым.</p>
+          <p class="news__description">Подписывайтесь на наши соцсети и узнавайте <br> о новинках и акциях первым.</p>
           <div class="news__link-wrapper">
             <a class="news__link news__link--inst" href="#">Instagram</a>
             <a class="news__link news__link--facebook" href="#">Facebook</a>
@@ -156,31 +154,33 @@
             </li>
             <li class="feedback-list__item">
               <cite>Ольга</cite> 
-              <blockquote>Выбор букетов на любой вкус <br> и цену. Бывают хорошие скидки, а флористы всегда помогут и точно соберут красивый букет!</blockquote>
+              <blockquote>Выбор букетов на любой вкус <br> и цену. Бывают хорошие скидки, <br> а флористы всегда помогут и точно соберут красивый букет!</blockquote>
             </li>
           </ul>    
         </div>    
       </section>
       <section class="contacts">
-        <div class="contacts-inner">
-          <h2 class="visually-hidden">Наши контакты</h2>
-          <div class="contacts-wrapper">
-            <b class="contacts__header">Мы ждем вас</b>
-            <div class="address-wrapper">
-              <span>Приходите к нам:</span>
-              <address class="contacts__address">Санкт-Петербург, ул. Большая Конюшенная, 19</address>
-            </div>
-            <div class="hours-wrapper">
-              <span>Режим работы</span>
-              <span class="contact__working-hours">Пн-Вск, с 9-00 до 20-00</span>
-            </div>
-            <div class="phone-wrapper">
-              <span>Позвоните нам:</span>
-              <a class="contact__phone" href="tel:+78129834719">+ 7 (812) 983-47-19</a>
-            </div>
-            <div class="email-wrapper">
-              <span>Напишите нам:</span>
-              <a class="contacts__email" href="mailto:info@botanika.ru">info@botanika.ru</a>
+        <div class="contacts__map">
+          <div class="contacts-inner">
+            <h2 class="visually-hidden">Наши контакты</h2>
+            <div class="contacts-wrapper">
+              <b class="contacts__header">Мы ждем вас</b>
+              <div class="address-wrapper">
+                <span>Приходите к нам:</span>
+                <address class="contacts__address">Санкт-Петербург, <br> ул. Большая Конюшенная, 19</address>
+              </div>
+              <div class="hours-wrapper">
+                <span>Режим работы:</span>
+                <span class="contact__working-hours">Пн-Вск, с 9-00 до 20-00</span>
+              </div>
+              <div class="phone-wrapper">
+                <span>Позвоните нам:</span>
+                <a class="contact__phone" href="tel:+78129834719">+ 7 (812) 983-47-19</a>
+              </div>
+              <div class="email-wrapper">
+                <span>Напишите нам:</span>
+                <a class="contacts__email" href="mailto:info@botanika.ru">info@botanika.ru</a>
+              </div>
             </div>
           </div>
         </div>

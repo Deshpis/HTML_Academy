@@ -14,71 +14,104 @@ body {
   clip: rect(0 0 0 0)
 }
 
+
+/* Pixel perfect .main-header */
+
 .main-header {
   border-top: 1px solid #AE7C78;
   border-bottom: 1px solid #AE7C78;  
 }
 
 .main-nav {
+  position: relative;
   width: 1200px;
   margin: 0 auto;  
   padding-left: 120px;
   padding-right: 120px;
-}
-
-.main-nav__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  padding-top: 16px;
-  padding-bottom: 15px;
-  list-style: none;
   font-family: Montserrat;
   font-weight: normal;
   font-size: 16px;
   line-height: 20px;
+  color: #AE7C78;
+}
+
+.main-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .main-nav__homepage {
-  height: 32px; /* какой-то костыль, без него не работает */
-  order: 1;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -50px;
   font-size: 0;
 }
 
-.main-nav__item:nth-of-type(5),
-.main-nav__item:nth-of-type(6),
-.main-nav__item:nth-of-type(7) {
-  order: 2;
-}
-
 .main-nav__list a {
+  display: block;
+  padding-top: 24px;
+  padding-bottom: 19px;
   text-decoration: none;
   color: #AE7C78;
 }
 
+.main-nav__list a:hover {
+  text-decoration: underline;
+}
 
+.main-nav__item {
+  display: inline-block;
+}
+
+.main-nav__item:not(:last-of-type) {
+  margin-right: 80px; /* Цифра с потолка для безопасного пространства между ссылками */
+}
+
+.main-nav__item:nth-of-type(1) {
+  margin-right: 99px;
+}
+
+.main-nav__item:nth-of-type(2) {
+  margin-right: 98px;
+}
+
+.main-nav__item:nth-of-type(3) {
+  margin-right: 221px;
+}
+
+.main-nav__item:nth-of-type(4) {
+  margin-right: 85px;
+}
+
+.main-nav__item:nth-of-type(5) {
+  margin-right: 84px;
+}
+
+
+/* Pixel perfect .promo */
 
 .promo {
   width: 1200px;
   margin: 0 auto;
-  padding-top: 82px;
+  padding-top: 81px;
   padding-right: 120px;
-  padding-bottom: 119px;
+  padding-bottom: 144px;
   padding-left: 120px;
   color: #AE7C78;
   background-image: 
     url(img/decoratives/promo/promo-decorative-1.jpg),
     url(img/decoratives/promo/promo-decorative-2.jpg);
   background-repeat: no-repeat, no-repeat;
-  background-size: 386px 404px, 386px 404px;
+  background-size: 386px 404px, 387px 420px;
   background-position: 527px 140px, 933px 82px;
 }
 
 .promo-wrapper {
   width: 384px;
+  font-family: Montserrat;
+  font-weight: normal;
 } 
 
 .promo__header {
@@ -92,8 +125,6 @@ body {
 .promo__description {
   margin: 0;
   margin-top: 24px;
-  font-family: Montserrat;
-  font-weight: normal;
   font-size: 24px;
   line-height: 29px;
 }
@@ -102,8 +133,6 @@ body {
   display: inline-block;
   margin-top: 64px;
   padding: 30px 70px;
-  font-family: Montserrat;
-  font-weight: normal;
   font-size: 16px;
   line-height: 20px;
   background-color: #D89999;
@@ -112,12 +141,20 @@ body {
   border-radius: 40px;  
 }
 
+.promo__btn:hover {
+  background-color: #a37373;
+  color: #f3f3f3;
+}
+
+
+/* Pixel perfect .features */
+
 .features {
   width: 1200px;
   margin: 0 auto;
-  padding-top: 48px;
+  padding-top: 24px;
   padding-right: 120px;
-  padding-bottom: 80px;
+  padding-bottom: 39px;
   padding-left: 120px;
 }
 
@@ -127,6 +164,9 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 20px;
   color: #AE7C78;
 }
 
@@ -135,12 +175,16 @@ body {
   width: 285px;
 }
 
+.features-list__item:nth-of-type(2) {
+  margin-left: 5px;
+}
+
 .features-list__item::before {
   position: absolute;
   content: "";
   display: block;
   left: 0;
-  top: 0;
+  top: -1px;
   height: 52px;
 }
 
@@ -173,27 +217,27 @@ body {
 
 .features-list__header {
   margin: 0;
-  font-family: Montserrat;
   font-weight: 500;
   font-size: 16px;
-  line-height: 20px;
 }
 
 .features-list__description {
   margin: 0;
   margin-top: 8px;
-  font-family: Montserrat;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
 }
+
+
+/* Pixel perfect .popular */
 
 .popular {
   position: relative;
   width: 794px;
   margin: 0 auto;
-  padding-left: 323px;
+  padding-top: 40px;
   padding-right: 323px;
+  padding-bottom: 60px;
+  padding-left: 323px;
 }
 
 .popular:after {
@@ -212,110 +256,103 @@ body {
   line-height: 48px;
   letter-spacing: 0.02em;
   color: #AE7C78;
-  text-align: center;
+  text-align: center; /* Это против pixel perfect, но в макете скорее всего ошибка */  
 }
 
 .popular-slides {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 20px;
 }
 
-.popular-slides__header {
+.popular-item__header {
   display: inline-block;
   margin: 0;
   margin-top: 27px;
   width: 387px;
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
   color: #AE7C78;
 }
 
-.popular-slides__img {
+.popular-item__img {
   float: right;
 }
 
-.popular-slides__description {
+.popular-item__description {
   display: inline-block;
   width: 387px;
   margin: 0;
   margin-top: 20px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
   color: #AE7C78;
 }
 
-.popular-slides__size {
+.popular-item__size {
   display: inline-block;
   margin-top: 24px;
   width: 387px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
   color: #AE7C78;
 }
 
-.popular-slides__price {
+.popular-item__price {
   display: inline-block;
   margin-top: 24px;
   width: 387px;
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
   color: #AE7C78;
 }
 
-.popular-slides__btn {
+.popular-item__btn {
   display: inline-block;
   margin-top: 64px;
-  padding: 30px 106px;
-  font-family: Montserrat;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
+  padding: 30px 107px;
   background-color: #D89999;
   text-decoration: none;
   color: #ffffff;
   border-radius: 40px;  
 }
 
+.popular-item__btn:hover {
+  background-color: #a37373;
+  color: #f3f3f3;
+}
+
 .popular__buttons {
   position: absolute;
-  bottom: -38px;
+  bottom: 27px;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -62px;
   display: block;
   text-align: center;
 }
 
 .popular__btn {
   padding: 0;
-  width: 50px;
-  height: 14px;
+  width: 53px;
+  height: 18px;
   position: relative;
   font-size: 0;
   border: none;
   background-color: inherit;
   background-image: url(img/decoratives/slider-arrow.svg);
-  background-size: 50px 14px;
+  background-size: 53px 18px;
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
 .popular__btn--next {
-  margin-left: 20px;
+  margin-left: 14px;
   transform: rotate(180deg);
 }
+
+
+/* Pixel perfect .compilation */
 
 .compilation {
   display: flex;
@@ -323,9 +360,10 @@ body {
   justify-content: space-between;
   width: 1200px;
   margin: 0 auto;
-  padding-top: 118px;
-  padding-left: 120px;
+  padding-top: 44px;
   padding-right: 120px;
+  padding-bottom: 40px;
+  padding-left: 120px;
 }
 
 .compilation__item {
@@ -338,12 +376,24 @@ body {
   background-image: linear-gradient(rgba(174, 124, 120, 0.6), rgba(174, 124, 120, 0.6)), url(img/decoratives/compilation/compilation-wedding.jpg);
 }
 
+.compilation__item--wedding:hover {
+  background-image: linear-gradient(rgba(174, 124, 120, 0.8), rgba(174, 124, 120, 0.6)), url(img/decoratives/compilation/compilation-wedding.jpg);
+}
+
 .compilation__item--peonies {
   background-image: linear-gradient(rgba(174, 124, 120, 0.6), rgba(174, 124, 120, 0.6)), url(img/decoratives/compilation/compilation-peonies.jpg);
 }
 
+.compilation__item--peonies:hover {
+  background-image: linear-gradient(rgba(174, 124, 120, 0.8), rgba(174, 124, 120, 0.6)), url(img/decoratives/compilation/compilation-peonies.jpg);
+}
+
 .compilation__item--catalog {
   background-image: linear-gradient(rgba(174, 124, 120, 0.6), rgba(174, 124, 120, 0.6)), url(img/decoratives/compilation/compilation-catalog.jpg);
+}
+
+.compilation__item--catalog:hover {
+  background-image: linear-gradient(rgba(174, 124, 120, 0.8), rgba(174, 124, 120, 0.6)), url(img/decoratives/compilation/compilation-catalog.jpg);
 }
 
 .compilation__link {
@@ -355,40 +405,37 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  
   text-decoration: none;
+  color: #FFFFFF;
 }
 
 .compilation__header {
   margin: 0;
   font-family: Playfair Display;
-  font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 48px;  
   letter-spacing: 0.02em;
-  color: #FFFFFF;
-  vertical-align: center;
 }
 
 .compilation__description {
   margin-top: 8px;
   font-family: Montserrat;
-  font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 20px;
-  color: #FFFFFF;
-  vertical-align: center;
 }
 
+
+/* Pixel perfect .discounts */
+
 .discounts {
-  width: 1220px;
+  width: 1200px;
   margin: 0 auto;
-  margin-top: 80px;
-  padding-left: 120px;
+  padding-top: 40px;
   padding-right: 120px;
-  
+  padding-bottom: 40px;
+  padding-left: 120px;
 }
 
 .discounts-list {
@@ -396,6 +443,8 @@ body {
   padding: 0;
   list-style: none;
   background-color:#AE7C78;
+  font-family: Montserrat;
+  color: #FFFFFF;
 }
 
 .discounts-list__item {
@@ -416,32 +465,29 @@ body {
 .discounts-list__header {
   margin: 0;
   font-family: Playfair Display;
-  font-style: normal;
   font-weight: normal;
   font-size: 44px;
   line-height: 59px;
   letter-spacing: 0.02em;
-  color: #FFFFFF;
 }
 
 .discounts-list__description {
   margin: 0;
   margin-top: 24px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
   font-size: 24px;
   line-height: 29px;
-  color: #FFFFFF;
 }
+
+
+/* Pixel perfect .instruction */
 
 .instruction {
   width: 1200px;
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 40px;
   padding-left: 120px;
   padding-right: 120px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .instruction-header {
@@ -458,21 +504,31 @@ body {
 
 .instruction-list {
   margin: 0;
-  margin-top: 36px;
+  margin-top: 37px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   list-style: none;
   background-repeat: no-repeat;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 20px;
+  color: #AE7C78;
 }
 
 .instruction-list__item {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   width: 285px;
+  margin-right: 20px;
   padding-top: 60px;
+}
+
+.instruction-list__item:last-of-type {
+  margin-right: 0; /* Обнуляем безопасное расстояние справа для последнего элемента */
 }
 
 .instruction-list__item::before {
@@ -484,6 +540,11 @@ body {
   height: 52px;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.instruction-list__item--step-3 .instruction-list__description { /* Исключительно для pixel perfect */
+  padding-left: 5px; 
+  padding-right: 5px;
 }
 
 .instruction-list__item--step-1::before {
@@ -504,33 +565,27 @@ body {
 
 .instruction-list__header {
   margin: 0;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 20px;
-  color: #AE7C78;
   text-align: center;
 }
 
 .instruction-list__description {
   margin: 0;
   margin-top: 8px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
   text-align: center;
-  color: #AE7C78;
 }
+
+
+/* Pixel perfect .news */
 
 .news {
   width: 1200px;
   margin: 0 auto;
-  padding-top: 70px;
+  padding-top: 109px;
   padding-right: 120px;
-  padding-bottom: 109px;
+  padding-bottom: 140px;
   padding-left: 120px;
   background-image: 
     url(img/decoratives/news/news-decorate-1.jpg),
@@ -545,9 +600,12 @@ body {
     285px 220px,
     387px 460px;
   background-position: 
-    628px 0,
-    628px 240px,
-    933px 0;
+    628px 39px,
+    628px 279px,
+    933px 39px;
+
+  font-family: Montserrat;
+  color: #AE7C78;
 }
 
 .news-inner {
@@ -557,27 +615,22 @@ body {
 .news__header {
   margin: 0;
   font-family: Playfair Display;
-  font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 48px;
   letter-spacing: 0.02em;
-  color: #AE7C78;
+  
 }
 
 .news__description {
   margin: 0;
   margin-top: 40px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
   font-size: 24px;
   line-height: 29px;
-  color: #AE7C78;
 }
 
 .news__link-wrapper {
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .news__link {
@@ -597,46 +650,45 @@ body {
 }
 
 .news__link--inst {
-  margin-right: 21px;
+  margin-right: 10px;
 }
 
 .news__link--inst::before {
   width: 20px;
-  background-image: url(img/decoratives/instagram.svg);
+  background-image: url(img/decoratives/instagram-dark.svg);
   background-repeat: no-repeat;
   background-size: 20px 20px;
 }
 
-.news__link--facebook {
-  margin-right: 19px;
-}
-
 .news__link--facebook::before {
   width: 12px;
-  background-image: url(img/decoratives/facebook.svg);
+  background-image: url(img/decoratives/facebook-dark.svg);
   background-repeat: no-repeat;
   background-size: 12px 20px;
 }
 
 .news__link--twitter::before {
   width: 26px;
-  background-image: url(img/decoratives/twitter.svg);
+  background-image: url(img/decoratives/twitter-dark.svg);
   background-repeat: no-repeat;
   background-size: 26px 20px;
 }
 
+
+/* Pixel perfect .feedback */
+
 .feedback {
   width: 1200px;
   margin: 0 auto;
+  padding-top: 43px;
   padding-left: 120px;
   padding-right: 120px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .feedback-inner {
   width: 1110px;
   margin: 0 auto;
-  margin-top: 80px;
   padding-top: 39px;
   padding-left: 44px;
   padding-right: 44px;
@@ -647,7 +699,6 @@ body {
 .feedback-header {
   margin: 0;
   font-family: Playfair Display;
-  font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 48px;
@@ -671,32 +722,38 @@ body {
   flex-direction: column-reverse;
   align-items: center;
   width: 300px;
+  margin-right: 44px; /* Цифра равная внутреннему отступу контейнера-родителя для безопасного расстояния */
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 20px;
+  color: #AE7C78;
+}
+
+.feedback-list__item:nth-of-type(3n) {
+  margin-right: 0; /* Обнуляем отступ для каждого 3-го элемента */
 }
 
 .feedback-list__item cite {
   margin-top: 16px;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #AE7C78;
 }
 
 .feedback-list__item blockquote {
   margin: 0;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
   text-align: center;
-  color: #AE7C78;
 }
 
+
+/* Pixel perfect .contacts */
+
 .contacts {
+  padding-top: 40px;
+}
+
+.contacts__map {
   padding-top: 52px;
-  padding-bottom: 72px;
+  padding-bottom: 71px;
   background-image: url(img/decoratives/contacts/contacts-background.jpg);
   background-repeat: no-repeat;
   background-clip: border-box;
@@ -739,7 +796,6 @@ body {
   line-height: 48px;
   display: flex;
   align-items: center;
-  color: #AE7C78;
 }
 
 .address-wrapper {
@@ -747,15 +803,15 @@ body {
 }
 
 .hours-wrapper {
-  margin-top: 30px;
+  margin-top: 33px;
 }
 
 .phone-wrapper {
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 .email-wrapper {
-  margin-top: 33px;
+  margin-top: 30px;
 }
 
 .contacts__address,
@@ -770,20 +826,23 @@ body {
 }
 
 .contacts__address {
-  margin-top: 19px;
+  margin-top: 15px;
 }
 
 .contact__working-hours {
-  margin-top: 12px;
+  margin-top: 13px;
 }
 
 .contact__phone {
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .contacts__email {
-  margin-top: 15px;
+  margin-top: 13px;
 }
+
+
+/* Pixel perfect .main-footer */
 
 .main-footer {
   padding-top: 24px;
@@ -802,8 +861,13 @@ body {
 }
 
 .main-footer__homepage {
+  margin-left: 5px;
   font-size: 0;
-  cursor: pointer;
+}
+
+.footer-nav {
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .footer-nav__list {
@@ -828,6 +892,10 @@ body {
   color: #ffffff;
 }
 
+.footer-nav__list a:hover {
+  text-decoration: underline;
+}
+
 .footer__link {
   position: relative;
   padding-left: 26px;
@@ -840,12 +908,12 @@ body {
   content: "";
   width: 26px;
   height: 20px;
-  top: -20px;
+  top: -15px;
   left: 0;
 }
 
 .footer__link--inst {
-  margin-right: 21px;
+  margin-right: 13px;
 }
 
 .footer__link--inst::before {
@@ -853,10 +921,6 @@ body {
   background-image: url(img/decoratives/instagram-light.svg);
   background-repeat: no-repeat;
   background-size: 20px 20px;
-}
-
-.footer__link--facebook {
-  margin-right: 19px;
 }
 
 .footer__link--facebook::before {
